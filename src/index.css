@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --prime-text: hsl(229, 25%, 31%);
+  --score-text: hsl(229, 64%, 46%);
+  --light-border: hsl(217, 16%, 45%);
+  --scissors-grad: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --paper-grad: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --rock-grad: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --liz-grad: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --cayn-grad: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+}
+
+html {
+  background: radial-gradient(
+      circle at top,
+      hsl(214, 47%, 23%),
+      hsl(237, 49%, 15%)
+    )
+    no-repeat;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 600;
+}
+
+body {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem; /* 20px */
+}
