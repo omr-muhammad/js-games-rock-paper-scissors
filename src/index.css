@@ -26,6 +26,7 @@ html {
     no-repeat;
   font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* body {
@@ -64,7 +65,6 @@ header {
 
     h4 {
       color: var(--score-text);
-      text-transform: uppercase;
       font-size: 1.25rem;
       letter-spacing: 1px;
       margin-bottom: 5px;
@@ -76,5 +76,61 @@ header {
       font-weight: 700;
       color: var(--prime-text);
     }
+  }
+}
+
+footer {
+  @media (max-width: 520px) {
+    flex-direction: column-reverse;
+    gap: 0.625rem;
+  }
+
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .toggler {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    border: 3px solid var(--light-border);
+    border-radius: 7px;
+    color: white;
+    letter-spacing: 1px;
+
+    span {
+      cursor: pointer;
+    }
+
+    .switch-box {
+      width: 4rem;
+      padding: 0.2rem;
+      border: inherit;
+      border-radius: 20px;
+
+      .switcher {
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        background-color: white;
+      }
+    }
+  }
+
+  .btn {
+    padding: 0.625rem 2.5rem;
+    font-size: 1.25rem;
+    font-family: inherit;
+    color: white;
+    text-transform: inherit;
+    border: 3px solid var(--light-border);
+    border-radius: 7px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    letter-spacing: 2px;
   }
 }
