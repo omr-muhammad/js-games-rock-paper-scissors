@@ -9,7 +9,7 @@ export default function App() {
     <>
       <Header gameStatus={gameStatus} />
       <main style={{ flexGrow: 1 }}></main>
-      <Footer />
+      <Footer gameStatus={gameStatus} setGameStatus={setGameStatus} />
     </>
   );
 }

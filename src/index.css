@@ -61,7 +61,11 @@ header {
     background-color: white;
     padding: 0.625rem 1.5rem;
     border-radius: 5px;
-    text-align: center;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
     h4 {
       color: var(--score-text);
@@ -112,10 +116,15 @@ footer {
       border-radius: 20px;
 
       .switcher {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
         border-radius: 50%;
         background-color: white;
+        transition: 0.3s ease-out; /* Start Fast / End Slow */
+
+        &.advanced {
+          transform: translateX(35px);
+        }
       }
     }
   }
