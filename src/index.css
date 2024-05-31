@@ -28,10 +28,53 @@ html {
   font-weight: 600;
 }
 
-body {
+/* body {
+  
+} */
+
+#root {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.25rem; /* 20px */
+  padding: 2rem; /* 20px */
+}
+
+header {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.25rem;
+  border: 3px solid var(--light-border);
+  border-radius: 0.625rem;
+
+  .image img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .score-box {
+    background-color: white;
+    padding: 0.625rem 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+
+    h4 {
+      color: var(--score-text);
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: clamp(3rem, max(3rem, (10vw / 2)), 4.5rem);
+      line-height: 1;
+      font-weight: 700;
+      color: var(--prime-text);
+    }
+  }
 }
