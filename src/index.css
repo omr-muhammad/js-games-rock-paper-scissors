@@ -71,7 +71,7 @@ header {
     }
 
     p {
-      font-size: clamp(3rem, max(3rem, (10vw / 2)), 4.5rem);
+      font-size: clamp(3rem, 10vw / 2, 4.5rem);
       line-height: 1;
       font-weight: 700;
       color: var(--prime-text);
