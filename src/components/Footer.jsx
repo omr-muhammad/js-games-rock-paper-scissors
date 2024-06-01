@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { Modal } from "./Modal";
+
 export default function Footer({ gameStatus, setGameStatus }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <footer>
       <div className="toggler">
@@ -11,7 +16,10 @@ export default function Footer({ gameStatus, setGameStatus }) {
         <span onClick={() => setGameStatus("advanced")}>Advanced</span>
       </div>
 
-      <button className="btn">Rules</button>
+      <button className="btn" onClick={() => setIsOpen(true)}>
+        Rules
+      </button>
+      <Modal gameStatus={gameStatus} setIsOpen={setIsOpen} isOpen={isOpen} />
     </footer>
   );
 }

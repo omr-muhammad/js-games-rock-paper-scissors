@@ -52,9 +52,13 @@ header {
   border: 3px solid var(--light-border);
   border-radius: 0.625rem;
 
-  .image img {
-    object-fit: cover;
-    width: 100%;
+  .image {
+    align-self: stretch;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
   }
 
   .score-box {
@@ -71,7 +75,6 @@ header {
       color: var(--score-text);
       font-size: 1.25rem;
       letter-spacing: 1px;
-      margin-bottom: 5px;
     }
 
     p {
@@ -141,5 +144,64 @@ footer {
     background-color: transparent;
     cursor: pointer;
     letter-spacing: 2px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(0);
+  transition: 0.2s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.white {
+    background-color: white;
+  }
+
+  &.open {
+    transform: scale(1);
+  }
+
+  .rules-box {
+    @media (max-width: 400px) {
+      gap: 6rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    gap: 2rem;
+    margin-inline: 10px;
+    color: var(--prime-text);
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      align-self: normal;
+    }
+
+    .close {
+      object-fit: cover;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .rules-image img {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
