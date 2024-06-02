@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Card from "./components/Card";
 
 export default function App() {
   const [gameStatus, setGameStatus] = useState("simple");
@@ -8,7 +9,9 @@ export default function App() {
   return (
     <>
       <Header gameStatus={gameStatus} />
-      <main style={{ flexGrow: 1 }}></main>
+      <main>
+        <Card />
+      </main>
       <Footer gameStatus={gameStatus} setGameStatus={setGameStatus} />
     </>
   );
