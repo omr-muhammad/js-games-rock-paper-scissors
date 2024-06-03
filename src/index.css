@@ -32,18 +32,23 @@ html {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
+  user-select: none;
 }
 
 /* body {
   
 } */
 
-#root {
+.game-container {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem; /* 20px */
+
+  @media (max-width: 970px) {
+    gap: 4rem;
+  }
 }
 
 header {
@@ -58,10 +63,7 @@ header {
   border-radius: 0.625rem;
 
   .image {
-    align-self: stretch;
-
     img {
-      object-fit: cover;
       width: 100%;
     }
   }
@@ -105,34 +107,90 @@ main {
 
     .bg-img {
       width: 300px;
-      max-height: 230px;
-      object-fit: contain;
+      /* max-height: 230px; */
+      /* object-fit: contain; */
     }
   }
 
   /* The OUTER ELEMENT */
   .card-grad {
     background: linear-gradient(var(--scissors-grad));
-    width: 9rem;
-    height: 9rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
-    padding: 13px;
+    padding: 15px;
     box-shadow: 0 7px 0 0 hsl(39deg 89% 49% / 68%);
     position: absolute;
+    cursor: pointer;
 
     &.simple.paper {
       top: -60px;
-      left: -40px;
+      left: -30px;
     }
 
     &.simple.scissors {
       top: -60px;
-      right: -40px;
+      right: -30px;
     }
 
     &.simple.rock {
-      bottom: -38px;
-      left: 80px;
+      bottom: -20px;
+      left: 85px;
+    }
+
+    @media (max-width: 400px) {
+      &.simple.paper {
+        left: -15px;
+      }
+
+      &.simple.scissors {
+        right: -15px;
+      }
+
+      &.simple.rock {
+        bottom: 0;
+        left: 85px;
+      }
+    }
+
+    /* ADVANCED */
+    &.advanced.scissors {
+      top: -40px;
+      left: 87px;
+    }
+
+    &.advanced.paper {
+      right: -55px;
+      top: 55px;
+    }
+
+    &.advanced.spock {
+      left: -55px;
+      top: 55px;
+    }
+
+    &.advanced.rock {
+      bottom: -50px;
+      right: 0px;
+    }
+
+    &.advanced.lizard {
+      bottom: -50px;
+      left: 0;
+    }
+
+    @media (max-width: 400px) {
+      &.advanced.scissors {
+        top: -50px;
+      }
+
+      &.advanced.paper {
+        right: -25px;
+      }
+
+      &.advanced.spock {
+        left: -25px;
+      }
     }
 
     /* THE INNER ELEMENT */
@@ -143,12 +201,12 @@ main {
       height: 100%;
       background-color: white;
       border-radius: 50%;
-      padding: 15px;
+      padding: 10px;
       box-shadow: 0 5px rgba(0, 0, 0, 0.2) inset;
 
       img {
         object-fit: cover;
-        width: 70%;
+        width: 50%;
       }
     }
   }
@@ -237,8 +295,8 @@ footer {
   }
 
   .rules-box {
-    @media (max-width: 400px) {
-      gap: 6rem;
+    @media (max-width: 430px) {
+      gap: 7rem;
       font-weight: 700;
       font-size: 1.5rem;
     }

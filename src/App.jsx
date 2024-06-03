@@ -7,12 +7,12 @@ export default function App() {
   const [gameStatus, setGameStatus] = useState("simple");
 
   return (
-    <>
+    <div className="game-container">
       <Header gameStatus={gameStatus} />
       <main>
         <Cards gameStatus={gameStatus} />
       </main>
       <Footer gameStatus={gameStatus} setGameStatus={setGameStatus} />
-    </>
+    </div>
   );
 }

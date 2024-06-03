@@ -4,7 +4,7 @@ import CloseIcon from "./CloseIcon";
 
 export function Modal({ isOpen, gameStatus, setIsOpen }) {
   const [width, setWidth] = useState(window.innerWidth);
-  const isMobile = width < 400;
+  const isMobile = width < 430;
   const rulesImage =
     gameStatus === "simple" ? "/image-rules.svg" : "/image-rules-bonus.svg";
 
