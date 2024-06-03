@@ -1,11 +1,13 @@
-// 1) Define object for values
-// 2) Define props to handle dynamic values
+export default function Card({ url, background, shadow, gameStatus }) {
+  const imageName = url.slice(6, -4);
 
-export default function Card() {
   return (
-    <div className="card-grad">
+    <div
+      className={`card-grad ${imageName} ${gameStatus}`}
+      style={{ background, boxShadow: shadow }}
+    >
       <div className="card">
-        <img src="/icon-scissors.svg" alt="Card" />
+        <img src={url} alt={url.slice(6, -4)} />
       </div>
     </div>
   );
