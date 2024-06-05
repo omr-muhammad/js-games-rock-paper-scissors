@@ -1,22 +1,12 @@
-import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import CloseIcon from "./CloseIcon";
+import { useWindowWith } from "../hooks/useWindowWith";
 
 export function Modal({ isOpen, gameStatus, setIsOpen }) {
-  const [width, setWidth] = useState(window.innerWidth);
+  const width = useWindowWith();
   const isMobile = width < 430;
   const rulesImage =
     gameStatus === "simple" ? "/image-rules.svg" : "/image-rules-bonus.svg";
-
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   function handleOutsideClick(e) {
     if (isOpen && !e.currentTarget.classList.contains("white")) {

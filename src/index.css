@@ -33,6 +33,7 @@ html {
   font-weight: 600;
   text-transform: uppercase;
   user-select: none;
+  color: white;
 }
 
 /* body {
@@ -110,6 +111,65 @@ main {
       /* max-height: 230px; */
       /* object-fit: contain; */
     }
+
+    &:not(.flex) .card-grad {
+      cursor: pointer;
+      position: absolute;
+    }
+
+    &.flex {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      .card-grad {
+        width: 12rem;
+        height: 12rem;
+        padding: 1.25rem;
+        box-shadow: 0 10px 0 0 hsl(39deg 89% 49% / 68%);
+
+        &.winner {
+          box-shadow: 0 0 0 45px rgba(255, 255, 255, 0.1),
+            0 0 0 90px rgba(255, 255, 255, 0.1),
+            0 0 0 150px rgba(255, 255, 255, 0.1);
+        }
+
+        .card {
+          padding: 15px;
+          box-shadow: 0 7px rgba(0, 0, 0, 0.2) inset;
+
+          img {
+            width: 60%;
+          }
+        }
+      }
+
+      .result-title {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+      }
+
+      .play-again {
+        padding: 1rem 4rem;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: inherit;
+        letter-spacing: 1px;
+        text-transform: inherit;
+        color: var(--prime-text);
+        cursor: pointer;
+      }
+    }
+
+    .placeholder {
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   }
 
   /* The OUTER ELEMENT */
@@ -119,9 +179,6 @@ main {
     height: 8rem;
     border-radius: 50%;
     padding: 15px;
-    box-shadow: 0 7px 0 0 hsl(39deg 89% 49% / 68%);
-    position: absolute;
-    cursor: pointer;
 
     &.simple.paper {
       top: -60px;
@@ -205,7 +262,6 @@ main {
       box-shadow: 0 5px rgba(0, 0, 0, 0.2) inset;
 
       img {
-        object-fit: cover;
         width: 50%;
       }
     }
