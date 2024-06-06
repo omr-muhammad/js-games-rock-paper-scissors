@@ -112,38 +112,51 @@ main {
       /* object-fit: contain; */
     }
 
-    &:not(.flex) .card-grad {
+    &:not(.result) .card-grad {
       cursor: pointer;
       position: absolute;
     }
 
-    &.flex {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
+    &.result {
+      .win-lose {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 5rem;
 
-      .card-grad {
-        width: 12rem;
-        height: 12rem;
-        padding: 1.25rem;
-        box-shadow: 0 10px 0 0 hsl(39deg 89% 49% / 68%);
+        .card-grad {
+          width: 12rem;
+          height: 12rem;
+          padding: 1.25rem;
 
-        &.winner {
-          box-shadow: 0 0 0 45px rgba(255, 255, 255, 0.1),
-            0 0 0 90px rgba(255, 255, 255, 0.1),
-            0 0 0 150px rgba(255, 255, 255, 0.1);
+          .card {
+            padding: 15px;
+            box-shadow: 0 7px rgba(0, 0, 0, 0.2) inset;
+
+            img {
+              width: 60%;
+            }
+          }
         }
 
-        .card {
-          padding: 15px;
-          box-shadow: 0 7px rgba(0, 0, 0, 0.2) inset;
+        .placeholder {
+          width: 12rem;
+          height: 12rem;
+          border-radius: 50%;
+          background-color: rgba(0, 0, 0, 0.2);
+        }
 
-          img {
-            width: 60%;
+        @media (max-width: 430px) {
+          gap: 2rem;
+
+          .card-grad,
+          .placeholder {
+            width: 9.5rem;
+            height: 9.5rem;
+            padding: 1rem;
           }
         }
       }
-
       .result-title {
         font-size: 2.5rem;
         letter-spacing: 2px;
@@ -162,13 +175,6 @@ main {
         color: var(--prime-text);
         cursor: pointer;
       }
-    }
-
-    .placeholder {
-      width: 12rem;
-      height: 12rem;
-      border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 

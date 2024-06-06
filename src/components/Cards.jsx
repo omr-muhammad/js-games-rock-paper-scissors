@@ -63,7 +63,7 @@ export default function Cards({ gameStatus }) {
   }
 
   return (
-    <div className={`game ${isStart ? "flex" : ""}`}>
+    <div className={`game ${isStart ? "result" : ""}`}>
       {!isStart ? (
         <>
           <img

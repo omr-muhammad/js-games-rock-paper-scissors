@@ -1,3 +1,4 @@
+import { useWindowWith } from "../hooks/useWindowWith";
 import Card from "./Card";
 
 const odds = {
@@ -19,6 +20,8 @@ const odds = {
 };
 
 export default function WinLose({ playerChoosed, comChoose, playAgain }) {
+  const width = useWindowWith();
+  const lt780 = width < 780;
   const result =
     playerChoosed.id === comChoose?.id
       ? "Draw"
@@ -31,33 +34,43 @@ export default function WinLose({ playerChoosed, comChoose, playAgain }) {
     "0 0 0 45px rgba(255, 255, 255, 0.1), 0 0 0 90px rgba(255, 255, 255, 0.1), 0 0 0 150px rgba(255, 255, 255, 0.1)";
   return (
     <>
-      <Card
-        {...playerChoosed}
-        shadow={
-          isPlayerWin
-            ? `${playerChoosed.shadow}, ${winningShadow}`
-            : playerChoosed.shadow
-        }
-      />
-      {comChoose && (
+      <div className="win-lose">
+        <Card
+          {...playerChoosed}
+          shadow={
+            isPlayerWin
+              ? `${playerChoosed.shadow}, ${winningShadow}`
+              : playerChoosed.shadow
+          }
+        />
+        {!lt780 && comChoose && (
+          <div>
+            <h3 className="result-title">{result}</h3>
+            <button className="play-again" onClick={playAgain}>
+              play again
+            </button>
+          </div>
+        )}
+        {!comChoose ? (
+          <div className="placeholder"></div>
+        ) : (
+          <Card
+            {...comChoose}
+            shadow={
+              !isPlayerWin
+                ? `${comChoose.shadow}, ${winningShadow}`
+                : comChoose.shadow
+            }
+          />
+        )}
+      </div>
+      {lt780 && comChoose && (
         <div>
           <h3 className="result-title">{result}</h3>
           <button className="play-again" onClick={playAgain}>
             play again
           </button>
         </div>
-      )}
-      {!comChoose ? (
-        <div className="placeholder"></div>
-      ) : (
-        <Card
-          {...comChoose}
-          shadow={
-            !isPlayerWin
-              ? `${comChoose.shadow}, ${winningShadow}`
-              : comChoose.shadow
-          }
-        />
       )}
     </>
   );
