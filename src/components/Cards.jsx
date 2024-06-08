@@ -22,8 +22,8 @@ const fullGame = [
   {
     id: "lizard",
     url: "/icon-lizard.svg",
-    background: "linear-gradient(var(--paper-grad))",
-    shadow: "0 7px 0 0 var(--paper-shadow)",
+    background: "linear-gradient(var(--liz-grad))",
+    shadow: "0 7px 0 0 var(--liz-shadow)",
   },
   {
     id: "spock",
