@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Card from "./Card";
-import WinLose from "./WinLose";
 
 const fullGame = [
   {
@@ -35,19 +33,19 @@ const fullGame = [
   },
 ];
 
-export default function Cards({ gameStatus }) {
-  const [isStart, setIsStart] = useState(false);
-  const [playerChoosed, setPlayerChoosed] = useState(null);
-  const [comChoose, setComChoose] = useState(null);
+export default function Cards({
+  gameStatus,
+  setIsStart,
+  setPlayerChoosed,
+  setComChoose,
+}) {
   const cards = gameStatus === "simple" ? fullGame.slice(0, 3) : fullGame;
   const backgroundImg =
     gameStatus === "simple" ? "/bg-triangle.svg" : "/bg-pentagon.svg";
 
-  function handlePlayerChoosed(index) {
+  function handleSelection(index) {
     setPlayerChoosed(fullGame[index]);
-  }
 
-  function getComputerChoose() {
     setTimeout(() => {
       const random = Math.floor(
         Math.random() * (gameStatus === "simple" ? 3 : 5)
@@ -56,42 +54,24 @@ export default function Cards({ gameStatus }) {
     }, 3000);
   }
 
-  function playAgain() {
-    setIsStart(false);
-    setPlayerChoosed(null);
-    setComChoose(null);
-  }
-
   return (
-    <div className={`game ${isStart ? "result" : ""}`}>
-      {!isStart ? (
-        <>
-          <img
-            className="bg-img"
-            src={backgroundImg}
-            alt={backgroundImg.slice(4, -3)}
-          />
+    <>
+      <img
+        className="bg-img"
+        src={backgroundImg}
+        alt={backgroundImg.slice(4, -4)}
+      />
 
-          {cards.map((card, i) => (
-            <Card
-              key={card.url}
-              {...card}
-              index={i}
-              gameStatus={gameStatus}
-              handlePlayerChoosed={handlePlayerChoosed}
-              setIsStart={setIsStart}
-              getComputerChoose={getComputerChoose}
-            />
-          ))}
-        </>
-      ) : (
-        <WinLose
-          // key={playerChoosed}
-          playAgain={playAgain}
-          playerChoosed={playerChoosed}
-          comChoose={comChoose}
+      {cards.map((card, i) => (
+        <Card
+          key={card.url}
+          {...card}
+          index={i}
+          gameStatus={gameStatus}
+          handleSelection={handleSelection}
+          setIsStart={setIsStart}
         />
-      )}
-    </div>
+      ))}
+    </>
   );
 }

@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import Header from "./components/Header";
+import Game from "./components/Game";
 import Footer from "./components/Footer";
-import Cards from "./components/Cards";
 
 export default function App() {
   const [gameStatus, setGameStatus] = useState("simple");
+  const [score, setScore] = useState(Number(localStorage.getItem("score")));
+
+  function updateScore(operator) {
+    setScore((prev) => prev + operator);
+  }
+
+  useEffect(() => {
+    localStorage.setItem("score", score);
+  }, [score]);
 
   return (
     <div className="game-container">
-      <Header gameStatus={gameStatus} />
+      <Header gameStatus={gameStatus} score={score} />
       <main>
-        <Cards gameStatus={gameStatus} />
+        <Game gameStatus={gameStatus} updateScore={updateScore} />
       </main>
       <Footer gameStatus={gameStatus} setGameStatus={setGameStatus} />
     </div>

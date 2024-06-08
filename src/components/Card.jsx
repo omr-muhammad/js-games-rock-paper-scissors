@@ -4,17 +4,15 @@ export default function Card({
   shadow,
   gameStatus,
   id,
-  handlePlayerChoosed,
+  handleSelection,
   index,
   setIsStart,
-  getComputerChoose,
   winClass,
 }) {
   function handleClick() {
-    if (!handlePlayerChoosed) return;
+    if (!handleSelection) return;
 
-    getComputerChoose?.();
-    handlePlayerChoosed?.(index);
+    handleSelection?.(index);
     setIsStart?.(true);
   }
 
