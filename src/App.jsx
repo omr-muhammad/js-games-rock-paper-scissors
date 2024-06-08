@@ -9,11 +9,21 @@ export default function App() {
   const [score, setScore] = useState(Number(localStorage.getItem("score")));
 
   function updateScore(operator) {
+    if (score + operator === 6) {
+      console.log("You Lose \nPlay Again");
+    } else if (score + operator === 9) {
+      console.log("You Win \nPlay Again");
+    }
+
     setScore((prev) => prev + operator);
   }
 
   useEffect(() => {
-    localStorage.setItem("score", score);
+    localStorage.setItem("score", "7");
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("score", String(score));
   }, [score]);
 
   return (
@@ -22,7 +32,11 @@ export default function App() {
       <main>
         <Game gameStatus={gameStatus} updateScore={updateScore} />
       </main>
-      <Footer gameStatus={gameStatus} setGameStatus={setGameStatus} />
+      <Footer
+        gameStatus={gameStatus}
+        setGameStatus={setGameStatus}
+        setScore={setScore}
+      />
     </div>
   );
 }
