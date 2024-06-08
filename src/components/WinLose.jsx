@@ -46,6 +46,7 @@ export default function WinLose({
         updateScore(-1);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [comChoose?.id]);
 
   return (
