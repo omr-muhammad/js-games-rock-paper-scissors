@@ -6,16 +6,24 @@ import Footer from "./components/Footer";
 
 export default function App() {
   const [gameStatus, setGameStatus] = useState("simple");
-  const [score, setScore] = useState(Number(localStorage.getItem("score")));
+  const [score, setScore] = useState(7);
 
   function updateScore(operator) {
-    if (score + operator === 6) {
-      console.log("You Lose \nPlay Again");
-    } else if (score + operator === 9) {
-      console.log("You Win \nPlay Again");
-    }
-
     setScore((prev) => prev + operator);
+
+    if (score + operator === 0) {
+      setTimeout(() => {
+        confirm("Sorry You Lose 😢 \nDo You Want To Play Again");
+        setScore(7);
+        location.reload();
+      }, 0);
+    } else if (score + operator === 13) {
+      setTimeout(() => {
+        confirm("Congratulations!! You Won 🎉 \nDo You Want To Play Again");
+        setScore(7);
+        location.reload();
+      }, 0);
+    }
   }
 
   useEffect(() => {
